@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  dockerized_connexion_template:
+    image: dockerized_connexion_template
+    build: .
+    ports:
+      - 80:80

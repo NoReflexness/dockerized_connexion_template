@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  dockerized_connexion_template:
+    image: dockerized_connexion_template
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80

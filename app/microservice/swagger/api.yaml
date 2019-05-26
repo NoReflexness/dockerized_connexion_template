@@ -1,0 +1,38 @@
+# `my_api.yaml` file contents
+swagger: '2.0'
+info:
+  title: microservice
+  version: "0.1"
+paths:
+  /:
+    get:
+      operationId: microservice.api.home
+      summary: Returns service status.
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Detailed description of the service status.
+  /hey:
+    get:
+      operationId: microservice.api.hello
+      summary: Returns greeting.
+      parameters:
+        - name: name
+          description: Your name.
+          in: query
+          type: string
+          required: true
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Message greeting
