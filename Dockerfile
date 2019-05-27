@@ -1,14 +1,18 @@
-FROM tiangolo/uwsgi-nginx:python3.7
+FROM python:3.7
 
 COPY ./app /app
-RUN pip install -r /app/requirements.txt
+
+RUN apt-get update -y
+
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 
 LABEL Name=dockerized_connexion_template Version=0.0.1
-EXPOSE 80
 
 WORKDIR /app
 ADD . /app
 
-RUN python3 -m pip install -r requirements.txt
-CMD ["python3", "-m", "microservice"]
+CMD ["python","-m","app"]
+#CMD ["uwsgi", "--http", ":8080", "-w", "app"]
+#CMD ["uwsgi", "--http", ":8080", "-w", "app," "-p", "16"]
 

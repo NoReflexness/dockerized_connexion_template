@@ -6,7 +6,7 @@ info:
 paths:
   /:
     get:
-      operationId: microservice.api.home
+      operationId: app.api.home
       summary: Returns service status.
       responses:
         200:
@@ -19,7 +19,7 @@ paths:
                 description: Detailed description of the service status.
   /hey:
     get:
-      operationId: microservice.api.hello
+      operationId: app.api.hello
       summary: Returns greeting.
       parameters:
         - name: name
